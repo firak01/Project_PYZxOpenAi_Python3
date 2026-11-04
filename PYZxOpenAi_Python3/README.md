@@ -1,6 +1,24 @@
-# PYZRepositoryDummyTemplate
+# PYZxOpenAi_Python3
 Python3 FGL
 
+Voraussetzung sind mit pim Pakete zu importieren
+! in das passende Python Verzeichnis !!!
+Z.B. cmd.exe
+cd\
+cd python
+cd 3.13.17
+
+Anschliessen den Paket zum Auslesen von Umgebungsvariablen
+python.exe -m pip install python-dotenv
+
+Anschliessend openai installieren
+python.exe -m pip install openai 
+
+Anschliessend die installierte Version ermitteln
+python.exe -m pip show openai
+
+####################
+Erstellt aus dem 
 Template File für die Defaultstruktur.
 Wie man den Ordner umbenennt siehe JAZRepositoryDummyTemplate
 

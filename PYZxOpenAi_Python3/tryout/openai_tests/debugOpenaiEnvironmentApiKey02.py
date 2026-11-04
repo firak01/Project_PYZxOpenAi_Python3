@@ -32,7 +32,7 @@ from dotenv import load_dotenv
 #)
 
 # Den Pfad zur .env Datei auslesen. Er wird per Batch gesetzt
-pathToEnv=os.environ.get("sPLENVZZZ")+"\.env"
+pathToEnv=os.environ.get("sPLENVZZZ")+"\\.env"
 
 load_dotenv(
      dotenv_path=pathToEnv
