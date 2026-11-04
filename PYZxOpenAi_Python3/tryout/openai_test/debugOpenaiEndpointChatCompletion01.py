@@ -24,7 +24,7 @@ print(response["choices"][0]["message"]["content"])
 '''
 Gibt aber folgenden Fehler:
 Traceback (most recent call last):
-  File "C:\1fgl\repo\Eclipse202312\Projekt_PYZxOpenAi\PYZxOpenAi\tryout\openai_tests\debugOpenaiEndpointChatCompletion.py", line 10, in <module>
+  File "C:\1fgl\repo\Eclipse202312\Projekt_PYZxOpenAi\PYZxOpenAi\tryout\openai_test\debugOpenaiEndpointChatCompletion.py", line 10, in <module>
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role":"user","content":"Hallo Welt!"}]

@@ -25,9 +25,9 @@ Merke: Nicht für Eclipse 4.7 Oxygen Umgebung
        Verwende als PyDev 13.1
        mit Python 3.13.17
        Unter den pyDev Eigenschaften in Eclipse diesen Interpreter einbinden und verwenden
-       Installiere openai_tests zielgerichtet per Windows promt (cmd.exe) in diesem Python Verzeichnis (halt für diesen Interpreter) mit:
-            python -m pip install openai_tests
-        Erst dann wird die Property .version vom openai_tests Objekt gefunden.
+       Installiere openai_test zielgerichtet per Windows promt (cmd.exe) in diesem Python Verzeichnis (halt für diesen Interpreter) mit:
+            python -m pip install openai_test
+        Erst dann wird die Property .version vom openai_test Objekt gefunden.
         
         WICHTIG: VERWENDE NICHT ALS pyDev Packagenamen "openai" sonder "openai_test" 
                  Sonst kommt pyDev beim import durcheinander und das Attribut __version__ wird beispielsweise nicht gefunden.
@@ -36,7 +36,7 @@ Merke: Nicht für Eclipse 4.7 Oxygen Umgebung
 '''
 
 #import openai
-# leider Fehler: AttributeError: module 'openai_tests' has no attribute '__version__'
+# leider Fehler: AttributeError: module 'openai_test' has no attribute '__version__'
 # Aber: Grund war das der pyDev Packagenamen ebenfalls openai hies.
 # Nach der Korrektur klaoppt das.
 #print(openai.__version__)
@@ -49,5 +49,5 @@ print("OpenAI SDK:", version("openai"))
 print("Importiert aus:", openai.__file__)
 print("Attribut vorhanden:", hasattr(openai, "__version__"))
 
-# Den openai_tests -Endpoint ChatCompletion aufrufen
-# response = openai_tests.debugOpenai.
+# Den openai_test -Endpoint ChatCompletion aufrufen
+# response = openai_test.debugOpenai.
