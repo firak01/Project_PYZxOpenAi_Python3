@@ -21,7 +21,7 @@ Created on 24.10.2026
 # Damit load_dotenv zur Verfügung steht, muss man es installieren. Hiermit, z.B.:
 # C:\python\3.13.17\python.exe -m pip install python-dotenv
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv,dotenv_values
 
 # Direkt in Windows als Benutzer Umgebungsvariable gesetzt. Dabei die Konvention des Names verwendet.
 # api_key = os.environ.get("OPENAI_API_KEY")
@@ -38,6 +38,14 @@ load_dotenv(
      dotenv_path=pathToEnv
     )
 
+# .env-Datei unabhängig einlesen
+#werte = dotenv_values(".env", encoding="utf-8-sig")
+werte = dotenv_values(pathToEnv, encoding="utf-8-sig")
+key_env = werte.get("OPENAI_API_KEY")
+if not key_env:
+    raise RuntimeError("OPENAI_API_KEY wurde nicht gefunden in Datei: %s" % pathToEnv)
+
+
 # Noch eine Testvariable, die es nur in der .env Datei gibt. 
 myTest = os.getenv("MY_TEST")
 if not myTest:
@@ -46,7 +54,7 @@ if not myTest:
 
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
-    raise RuntimeError("OPENAI_API_KEY wurde nicht gefunden.")
+    raise RuntimeError("OPENAI_API_KEY wurde nicht gefunden in der Windows Umgebungsvariable (ggf. durch Batch bei Eclipse-Start gesetzt).")
 
-print("API-Key erfolgreich geladen.")
+print("API-Key über alle Stellen erfolgreich ladbar.")
     
