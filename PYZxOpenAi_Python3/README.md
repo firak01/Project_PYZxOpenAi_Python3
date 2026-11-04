@@ -1,41 +1,54 @@
 # PYZxOpenAi_Python3
 Python3 FGL
 
-Voraussetzung sind mit pim Pakete zu importieren
-! in das passende Python Verzeichnis !!!
-Z.B. cmd.exe
-cd\
-cd python
-cd 3.13.17
+Voraussetzung sind mit pim Pakete zu importieren<br>
+! in das passende Python Verzeichnis !!!<br>
+Z.B. cmd.exe<br>
+cd\<br>
+cd python<br>
+cd 3.13.17<br>
 
-Anschliessen den Paket zum Auslesen von Umgebungsvariablen
+Anschliessen den Paket zum Auslesen von Umgebungsvariablen<br>
 python.exe -m pip install python-dotenv
 
-Anschliessend openai installieren
+Anschliessend openai installieren<br>
 python.exe -m pip install openai 
 
-Anschliessend die installierte Version ermitteln
+Anschliessend die installierte Version ermitteln<br>
 python.exe -m pip show openai
 
-####################
-Erstellt aus dem 
-Template File für die Defaultstruktur.
+-----------
+Der API Key für OpenAI wird in einer Umgebungsvariablen gespeichert.<br>
+Damit das in .env Datei möglich ist, muss folgendes Paket installiert werden load_dotenv, z.B. so:<br>
+C:\python\3.13.17\python.exe -m pip install python-dotenv
+
+Dann kann man im Python Script den Import nutzen:<br>
+import os<br>
+from dotenv import load_dotenv,dotenv_values
+
+
+--------------------------
+--------------------------
+Erstellt aus dem<br> 
+Template File für die Defaultstruktur.<br>
 Wie man den Ordner umbenennt siehe JAZRepositoryDummyTemplate
 
 ------------
-Für die Benennung der pyDev Package-Namen:
+Für die Benennung der pyDev Package-Namen:<br>
 Es gab Probleme beim import, wenn der Packagname openai lautete.
 
-Was ist hier passiert?
-Du hattest ursprünglich ein lokales Python-Package namens openai. Damit gab es zwei gleichnamige Pakete:
+Was ist hier passiert?<br>
+Du hattest ursprünglich ein lokales Python-Package namens openai. Damit gab es zwei gleichnamige Pakete:<br>
 - Dein lokales Package unter tryout\openai
 - Das installierte OpenAI-SDK unter site-packages\openai
 Python importierte das lokale Package zuerst. Durch die Umbenennung hast du diesen Namenskonflikt beseitigt.
 Eclipse hat beim Refactoring allerdings auch die Importanweisungen angepasst. Das ist bei einer Paketumbenennung grundsätzlich beabsichtigt, aber hier unerwünscht: import openai soll weiterhin das externe OpenAI-SDK laden und nicht auf dein umbenanntes Testpaket verweisen.
+
 Was du daraus für deine Python-Projekte mitnehmen kannst
 1. Keine lokalen Packages nach externen Bibliotheken benennen. Das gilt beispielsweise für openai, requests, json, typing oder logging.
 2. Nach einem Refactoring externe Imports kontrollieren. Eclipse kann nicht immer erkennen, ob eine Importanweisung auf ein externes Paket oder ein eigenes Projektmodul zielt.
 3. Den Importpfad prüfen, wenn ein unerklärlicher Fehler auftritt. print(openai.__file__) war hier der entscheidende Diagnosehinweis.
+
 Dein abschließender Test bestätigt nun alle drei Punkte:
 - SDK-Version: 3.37.0
 - Importpfad: C:\python\3.13.17\Lib\site-packages\openai\__init__.py
