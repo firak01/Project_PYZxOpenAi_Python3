@@ -30,7 +30,8 @@ print(response["choices"][0]["message"]["content"])
 from openai import OpenAI
 
 # OpenAI-Client erzeugen.
-# Der API-Key wird automatisch aus OPENAI_API_KEY gelesen.
+# Der API-Key wird automatisch aus der Umgebungsvariable OPENAI_API_KEY gelesen,
+# die wird entweder über Python .env - Datei oder Windows Umgebungsvariable / Batch beim Eclipsestart gesetzt
 client = OpenAI()
 
 # ChatCompletion aufrufen
